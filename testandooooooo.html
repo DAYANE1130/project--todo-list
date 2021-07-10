@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=console.dir(document.body), initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #digite-algo{
+    background-color: white;
+  }
+</style>
+<body>
+    <h1 id="boas-vindas"></h1>
+    <button id= "digite-algo">Digite aqui</button>
+    
+  <input id="insere-texto" type="text"/>
+  <p id="paragrafo"></p>
+
+
+    <label>Choose an ice cream flavor:
+        <select class="ice-cream" name="ice-cream">
+          <option value="">Select One …</option>
+          <option value="chocolate">Chocolate</option>
+          <option value="sardine">Sardine</option>
+          <option value="vanilla">Vanilla</option>
+        </select>
+      </label>
+      
+      <div class="result"></div>
+    
+
+      <script>
+          const selectElement = document.querySelector('.ice-cream');
+
+selectElement.addEventListener('change', (event) => {
+  const result = document.querySelector('.result');
+  result.textContent = `You like ${event.target.value}`;
+});
+
+
+// CRIANDO UMA CAIXA DE INTERAÇÃO ATRAVES DO - ONLOAD E PROMPT//
+//window.onload=boasVindas
+
+//function boasVindas( ) {
+ //   document.getElementById("boas-vindas").innerHTML=prompt("Digite seu nome")
+ //   }
+    //
+
+
+// CRIANDO FUNCTION MUDA COR DE FUNDO DO BOTÃO//
+
+window.onclick=mudacorbutton
+function mudacorbutton(){
+const botao=document.getElementById("digite-algo");
+botao.addEventListener("click",mudacorbutton)
+botao.style.backgroundColor="green"
+}
+
+let botaoDigiteAqui=document.getElementById("digite-algo");
+botaoDigiteAqui.addEventListener("click",insereText)
+ function insereText(){
+   let inputInsereTexto=document.getElementById("insere-texto");
+   const paragrafo=document.getElementById("paragrafo")
+   paragrafo.innerText+= inputInsereTexto.value + "\n";
+   // para ir adiconando oque já tem no paragrafo e ir adicionando o valor da caixinha tenho que colocar o sinal de + paragrafo.innerText+= inputInsereTexto.value;
+   // o \n serve para inserir quebra de linha (assim os textos que vou digitando ficam um abaixo do outro e não lado a lado tudo colado)
+   // parei nos 48 minutos da aula ao vivo sobre eventos
+   //
+ }
+ insereText();
+
+  
+
+
+      </script>
+
+</body>
+
+</html>
