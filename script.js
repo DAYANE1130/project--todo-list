@@ -1,6 +1,7 @@
 const botaoIncluirTarefa = document.getElementById("criar-tarefa");//botyão
 const listaTarefas = document.getElementById("lista-tarefas");//ol
 const inputTarefa = document.getElementById("texto-tarefa");//imput
+const clearbotao=document.getElementById("apaga-tudo");// botão limpar tudo
 
 botaoIncluirTarefa.addEventListener('click', adicionaTarefa)
 
@@ -37,17 +38,23 @@ changeBack();
 
 
 function duploClick() {
-  
-  listaTarefas.addEventListener("dblclick", function (event) {console.log(event.target.classList)
+
+  listaTarefas.addEventListener("dblclick", function (event) {
 
     if (event.target.classList.contains("texto-item-list")) {
-      event.target.classList.toggle("completed"); 
+      event.target.classList.toggle("completed");
     }
-    
   }
   )
 }
 duploClick();
+
+function limparLista() {
+  clearbotao.addEventListener("click",function(){
+    listaTarefas.innerHTML= "";
+  })
+}
+limparLista();
 
 
 
