@@ -1,7 +1,11 @@
 const botaoIncluirTarefa = document.getElementById("criar-tarefa");//botyão
 const listaTarefas = document.getElementById("lista-tarefas");//ol
 const inputTarefa = document.getElementById("texto-tarefa");//imput
-const clearbotao=document.getElementById("apaga-tudo");// botão limpar tudo
+const clearbotao = document.getElementById("apaga-tudo");// botão limpar tudo
+const btRemoveFinalizado = document.getElementById("remover-finalizados")
+
+
+
 
 botaoIncluirTarefa.addEventListener('click', adicionaTarefa)
 
@@ -50,15 +54,21 @@ function duploClick() {
 duploClick();
 
 function limparLista() {
-  clearbotao.addEventListener("click",function(){
-    listaTarefas.innerHTML= "";
+  clearbotao.addEventListener("click", function () {
+    listaTarefas.innerHTML = "";
   })
 }
 limparLista();
 
-
-
-
+function removeFinalizados() {
+  btRemoveFinalizado.addEventListener('click', function() {
+  const apagaRiscados = document.querySelectorAll('.completed')
+  for(let index = 0; index < apagaRiscados.length; index += 1) {
+  listaTarefas.removeChild(apagaRiscados[index])
+  }
+  })
+  }
+  removeFinalizados(); 
 
 
 
